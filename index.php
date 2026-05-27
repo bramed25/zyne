@@ -1,18 +1,18 @@
 <?php
-// 1. Capturamos la categoría seleccionada (por defecto 'ciencia_ficcion')
+// Capturamos la categoría seleccionada (por defecto 'ciencia_ficcion')
 $categoria_actual = $_GET['categoria'] ?? 'ciencia_ficcion';
 
-// 2. Definimos la ruta absoluta al archivo Prolog (vital para evitar errores en shell_exec)
+// Definimos la ruta absoluta al archivo Prolog
 $ruta_prolog = __DIR__ . '/cine.pl';
 
-// 3. Armamos el comando para la terminal
+// Armamos el comando para la terminal
 // Usamos /usr/bin/swipl (ruta habitual en Debian/Ubuntu/Fedora) para asegurar la ejecución
 $comando = '/usr/bin/swipl -q -f ' . escapeshellarg($ruta_prolog) . ' -g "forall(filtrar_por_categoria(\'' . $categoria_actual . '\', N, I), format(\'~w|~w~n\', [N, I]))" -t halt.';
 
-// 4. Ejecutamos y capturamos la salida
-$salida = shell_exec($comando);
+// Ejecutamos y capturamos la salida
+$salida = shell_exec($comando); // Ejecuta un comando a través del Shell y devuelve el resultado en forma de string
 
-// 5. Procesamos la salida en un arreglo
+// Procesamos la salida en un arreglo
 $peliculas = [];
 if ($salida) {
     $lineas = explode("\n", trim($salida));
@@ -30,17 +30,7 @@ if ($salida) {
 <head>
     <meta charset="UTF-8">
     <title>Catálogo de Cine</title>
-    <style>
-        body { font-family: sans-serif; background-color: #121212; color: #fff; margin: 0; padding: 20px; }
-        .filtros { text-align: center; margin-bottom: 30px; }
-        .filtros a { text-decoration: none; color: #fff; background: #333; padding: 10px 20px; margin: 0 10px; border-radius: 5px; }
-        .filtros a.activo { background: #e50914; }
-        .grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-        .tarjeta { background: #222; border-radius: 8px; overflow: hidden; width: 200px; text-align: center; transition: transform 0.2s; }
-        .tarjeta:hover { transform: scale(1.05); }
-        .tarjeta img { width: 100%; height: 300px; object-fit: cover; }
-        .tarjeta a { text-decoration: none; color: white; display: block; padding: 15px 5px; }
-    </style>
+     <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
 

@@ -1,6 +1,5 @@
 % Estructura: pelicula(Id, Categoria, Nombre, Actores, Duracion, Idioma, Anio, Sinopsis, Imagen).
 
-%CIENCIA FICCIÓN
 pelicula(1, 'ciencia_ficcion', 'Interstellar', 'Matthew McConaughey, Anne Hathaway', '169 min', 'Ingles/Subtitulada', 2014, 'Un grupo de exploradores prueban los saltos a través de agujeros de gusano en búsqueda de la sobrevivencia de la humanidad.', 'img/interestellar.png').
 pelicula(2, 'ciencia_ficcion', 'Volver al Futuro', 'Michael J. Fox, Christopher Loyd, Lea Thompson', '114 min', 'Ingles/Subtitulada', 1985, 'Marty McFly, un estudiante de 17 años, es enviado accidentalmente treinta años al pasado en un artefacto inventado por su amigo.', 'img/volver_futuro.png').
 pelicula(3, 'ciencia_ficcion', 'Matrix', 'Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss', '136 min', 'Ingles/Subtitulada', 1999,  'Un hacker se da cuenta por medio de otros rebeldes de la naturaleza de su realidad y su rol en la guerra contra los controladores.', 'img/matrix.png').
@@ -18,11 +17,13 @@ pelicula(12,'terror','Backrooms','Chiwetel Ejiofor, Renate Reinsve, Mark Duplass
 pelicula(13,'terror','El conjuro','Patrick Wilson, Vera Farmiga, Ron Livingston','112 min','Ingles/Subtitulada',2013,'Los investigadores paranormales Ed y Lorraine Warren trabajan para ayudar a una familia aterrorizada por una presencia oscura en su granja.','img/conjuro.png').
 pelicula(14,'terror','Siniestro','Ethan Hawke, Juliet Rylance','110 min','Ingles/Subtitulada',2012,'El escritor Ellison Oswalt encuentra una caja de videos que sugiere que el asesino al que está investigando es una es serie cuyo trabajo se remonta a los 60.','img/siniestro.png').
 pelicula(15,'terror','La Hora De La Desaparición','Julia Garner, Josh Brolin, Alden Ehrenreich','128 min','Ingles/Subtitulada',2025,'Varias historias interrelacionadas sobre la desaparición de estudiantes de pre-escolar en una pequeña ciudad.','img/desaparicion.png').
-% --- REGLAS DE CONSULTA ---
-% 1. Obtener todas las películas de una categoría (Para el filtro y vista principal)
+
+
+%REGLAS
+% Obtener todas las películas de una categoría (Para el filtro y vista principal)
 filtrar_por_categoria(Cat, Nombre, Imagen) :- 
     pelicula(_, Cat, Nombre, _, _, _, _, _, Imagen).
 
-% 2. Obtener los detalles completos de una película al hacer clic
+% Obtener los detalles completos de una película al hacer clic
 obtener_detalles(NombreABuscar, Categoria, Actores, Duracion, Idioma, Anio, Sinopsis, Imagen) :- 
     pelicula(_, Categoria, NombreABuscar, Actores, Duracion, Idioma, Anio, Sinopsis, Imagen).

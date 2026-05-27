@@ -35,15 +35,7 @@ if ($salida) {
 <head>
     <meta charset="UTF-8">
     <title><?= htmlspecialchars($nombre_pelicula) ?> - Detalles</title>
-    <style>
-        body { font-family: sans-serif; background-color: #121212; color: #fff; margin: 0; padding: 40px; }
-        .contenedor { max-width: 800px; margin: auto; display: flex; gap: 30px; background: #222; padding: 30px; border-radius: 10px; }
-        .imagen-container img { width: 300px; border-radius: 8px; }
-        .info h1 { margin-top: 0; color: #e50914; }
-        .info p { line-height: 1.6; }
-        .btn-volver { display: inline-block; margin-top: 20px; padding: 10px 20px; background: #333; color: white; text-decoration: none; border-radius: 5px; }
-        .btn-volver:hover { background: #555; }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
