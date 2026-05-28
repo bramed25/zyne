@@ -38,7 +38,9 @@ if ($salida) {
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
+    <header>
+        <h1>Zyne Cinema</h1>
+    </header>
     <?php if (!empty($detalle)): ?>
         <div class="contenedor">
             <div class="imagen-container">

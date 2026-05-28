@@ -6,7 +6,7 @@ $categoria_actual = $_GET['categoria'] ?? 'ciencia_ficcion';
 $ruta_prolog = __DIR__ . '/cine.pl';
 
 // Armamos el comando para la terminal
-// Usamos /usr/bin/swipl (ruta habitual en Debian/Ubuntu/Fedora) para asegurar la ejecución
+// Usamos /usr/bin/swipl (ruta habitual en Linux) para asegurar la ejecución
 $comando = '/usr/bin/swipl -q -f ' . escapeshellarg($ruta_prolog) . ' -g "forall(filtrar_por_categoria(\'' . $categoria_actual . '\', N, I), format(\'~w|~w~n\', [N, I]))" -t halt.';
 
 // Ejecutamos y capturamos la salida
@@ -29,11 +29,13 @@ if ($salida) {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Catálogo de Cine</title>
+    <title>Catálogo de Zyne</title>
      <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
-
+    <header>
+    <h1>Zyn<span class="parpadeo">e</span> Cinema</h1>
+</header>
     <div class="filtros">
         <a href="?categoria=ciencia_ficcion" class="<?= $categoria_actual == 'ciencia_ficcion' ? 'activo' : '' ?>">Ciencia Ficción</a>
         <a href="?categoria=animacion" class="<?= $categoria_actual == 'animacion' ? 'activo' : '' ?>">Animación</a>
